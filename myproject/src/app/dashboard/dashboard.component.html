@@ -1,0 +1,40 @@
+<div class="card">
+    <h1>USERS</h1>
+   
+
+  
+      
+    <div style="text-align:left;width:500px;">
+        
+    <div *ngFor="let user of users">
+       <div class="container">
+          <a  class="style" href="#demo"  data-toggle="collapse">{{user.id}}.){{user.name}}</a>
+        <div id="demo" class="collapse">
+          <div class="row">
+            <div class="column" style="background-color:#aaa;">
+              <img class="img" src="./assets/images/avatar.png" alt="avatar" />
+            </div>
+            <div class="column" style="background-color:#bbb;">
+               <p> Id:{{user.id}}</p>
+            <p>Name:{{user.name}}</p>
+            <p>Email:{{user.email}}</p>
+            <p>Role:{{user.role}}</p>
+        
+            <button type="button"
+            class="btn btn-primary"
+            (click) = "deleteUser(user.id)">Delete</button>
+            <button type="button" routerLink='/adduser'
+            class="btn btn-primary"
+           >Update</button>
+            </div>
+          </div>
+          </div>
+        
+           </div>
+        </div>
+  </div>
+</div>
+  <div class="button">
+      <button routerLink='/adduser' class="login login1">Add User</button>
+    </div>
+ 

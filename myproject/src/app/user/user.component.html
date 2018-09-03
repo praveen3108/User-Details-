@@ -1,0 +1,137 @@
+
+<div class="card">
+        <app-logout></app-logout>
+  <h1>USERS</h1>
+  
+  <div class="container">
+    <div class="col-md-12">
+     
+  
+      
+    
+        <div *ngFor="let user of users">
+
+
+    
+  <div style="text-align:left;width:500px;">
+      
+     <div class="container">
+        <a  class="style" href="#demo"  data-toggle="collapse">{{ user.name }}</a>
+      <div id="demo" class="collapse">
+        <div class="row">
+          <div class="column" style="background-color:#aaa;">
+            <img class="img" src="./assets/images/avatar.png" alt="avatar" />
+          </div>
+          <div class="column" style="background-color:#bbb;">
+            <p>Id:--{{ user.id }}</p>
+            <p>Name:--{{ user.name }}<p>  
+                <p>Email:--{{ user.email }}<p>         
+             
+                <button class="btn btn-info"
+                              (click)="showEditUserForm(user)">Update
+                             
+                    </button>
+                <button class="btn btn-danger"
+                             (click)="removeUser(user)">Delete
+                            
+                  </button>
+                </div>
+        </div>
+        </div>
+        </div>
+        
+  </div>
+ 
+          
+          
+          
+        </div>
+      
+  
+     <br />
+    <br />
+  
+    <form *ngIf="userForm" [formGroup]="angForm" novalidate>
+      <h2>Add New User</h2>
+      <div class="form-group">
+          <label for="exampleInputEmail1">Id</label>
+          <input type="number" formControlName="id" [(ngModel)]="newUser.id" name="id"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Id">
+          <div *ngIf="angForm.controls['id'].invalid &&(angForm.controls['id'].touched)" class="alert alert-danger">
+                   
+                <div *ngIf="angForm.controls['id'].errors.required">Id is required</div>           
+            </div>
+        </div>
+     
+         <div class="form-group">
+             <label for="exampleInputEmail1">Name</label>
+            <input type="text" formControlName="name" [(ngModel)]="newUser.name" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+            <div *ngIf="angForm.controls['name'].invalid &&(angForm.controls['name'].touched)" class="alert alert-danger">
+                   
+                    <div *ngIf="angForm.controls['name'].errors.required">Name is required</div>           
+                </div>
+        </div> 
+
+     
+          <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" formControlName="mail" [(ngModel)]="newUser.email" name="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+              <div *ngIf="angForm.controls['mail'].invalid &&(angForm.controls['mail'].touched)" class="alert alert-danger">
+                   
+                    <div *ngIf="angForm.controls['mail'].errors.required">Email is required</div>           
+                </div>
+            </div> 
+        <button type="button"
+                     class="btn btn-primary"
+                     (click)="saveUser(newUser)">Submit</button>
+        <button type="button"
+                     class="btn btn-warning"
+                     (click)="cancelNewUser()">Cancel</button>
+     
+     </form>
+  
+      <form *ngIf="editUserForm" [formGroup]="angForm" novalidate>
+      <h2>Edit User Details</h2>
+     
+          <div class="form-group">
+              <label for="exampleInputEmail1">Id</label>
+              <input type="number"  [(ngModel)]="editedUser.id" name="id"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Id" formControlName="id">
+              <div *ngIf="angForm.controls['id'].invalid &&(angForm.controls['id'].touched)" class="alert alert-danger">
+                   
+                    <div *ngIf="angForm.controls['id'].errors.required">Id is required</div>           
+                </div>
+            </div>
+         
+             <div class="form-group">
+                 <label for="exampleInputEmail1">Name</label>
+                <input type="text"  [(ngModel)]="editedUser.name" name="name"class="form-control" formControlName="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                <div *ngIf="angForm.controls['name'].invalid &&(angForm.controls['name'].touched)" class="alert alert-danger">
+                   
+                        <div *ngIf="angForm.controls['name'].errors.required">Name is required</div>           
+                    </div>
+            </div> 
+    
+         
+              <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                 
+                  <input type="email"  [(ngModel)]="editedUser.email" name="email"class="form-control" formControlName="mail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+                  <div *ngIf="angForm.controls['mail'].invalid &&(angForm.controls['mail'].touched)" class="alert alert-danger">
+                   
+                        <div *ngIf="angForm.controls['mail'].errors.required">Email is required</div>           
+                    </div>
+                </div> 
+        <button type="button"
+                     class="btn btn-primary"
+                     (click)="updateUser(editedUser)">Submit</button>
+        <button type="button"
+                     class="btn btn-warning"
+                     (click)="cancelEdits()">Cancel</button>
+     
+     </form>
+    </div>
+  </div>
+</div>
+<div class="button">
+    <button (click)="showAddUserForm()" class="login login1">Add User</button>
+  </div>
+  

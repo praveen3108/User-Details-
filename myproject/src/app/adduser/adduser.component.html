@@ -1,0 +1,36 @@
+
+<div class="card">
+    <h1>Add User</h1>
+ 
+    <br><br>
+    <div class="container">
+        
+<form id="formNewUser" name="formNewUser" #userData = "ngForm" (ngSubmit) = "addNewUser(userData.value)">
+        <div class="form-group">
+                <label for="email">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" ngModel>
+              </div>
+              
+        <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" ngModel>
+              </div>
+              <div class="form-group">
+                    <label for="email">Role:</label>
+                    <input type="text" class="form-control" name="role" id="role" placeholder="Enter Role" ngModel>
+                  </div>
+                     
+                  <button type="submit"
+                  class="btn btn-primary" 
+                  >Add User</button><br>
+        
+        </form>
+        <h2 *ngIf = "isAdded">{{confirmationString}}</h2>
+        <br>
+        <button type="button"
+        class="btn btn-primary"  routerLink="/dashboard"
+        >Goto Dashboard</button>
+      </div>
+ 
+  </div>
+ 

@@ -1,0 +1,50 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo{
+    width: 130px;
+    float: left;
+    margin-left: 60px;
+    margin-right: 40px;
+    
+
+
+}
+.menu{
+    list-style: none;
+    float: right;
+
+}
+.eachmenu{
+    display: inline;
+    color:lightgreen;
+    font-size: 130%;
+   
+    margin-right: 20px;
+    font-weight: bold;
+   
+    cursor: pointer
+
+}
+.eachmenu:hover{
+    color:gold;
+    border-bottom: 1px solid goldenrod;
+    transition:all 0.3s ease-in;
+    padding-bottom: 6px;
+}header{
+  
+    background: #BE93C5;  
+    background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  
+    background: linear-gradient(to right, #7BC6CC, #BE93C5); 
+    height:120vh;
+    background-position:center;
+
+    z-index: -2;
+}
+h1{
+    font-size: 70px;
+ font-weight: bold;
+text-align: center;
+
+font-family: "Comic Sans MS", cursive, sans-serif;
+}
